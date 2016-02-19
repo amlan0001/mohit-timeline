@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+
+<html ng-app="myapp">
+    <head>
+    <title>Page</title>
+
+        <script data-require="angular.js@1.5.0" data-semver="1.5.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+            
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script data-require="jquery" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   
+<script src="jquery.scrollintoview.js"></script> 
+        <script data-require="bootstrap@3.3.6" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <link data-require="font-awesome@4.5.0" data-semver="4.5.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" />
+   
+ <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+  </head>
+    
+<body style="background-color:#ededed" >
+    <div class="container" >
+        <div class="cumargin">
+        <div class="jumbotron">
+            {{hashval}}
+        </div>  
+        <div class="col-sm-4" style="margin-top:20px;">
+            	<div class="row">
+		                                <div class="col-sm-12" style="padding:0px;">
+                                    <!-- Nav tabs --><div class="card">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#all" aria-controls="home" role="tab" data-toggle="tab">All</a></li>
+                                        <li role="presentation"><a href="#completed" aria-controls="profile" role="tab" data-toggle="tab">Completed</a></li>
+                                        <li role="presentation"><a href="#inprogress" aria-controls="messages" role="tab" data-toggle="tab">InProgress</a></li>
+                                        
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content" style="background-color:#ededed">
+                                        <div role="tabpanel" class="tab-pane active" id="all" ng-controller="myctrl" >
+                                             <ul  class="timeline cumarginbutton" ng-repeat="data in question |limitTo:count+2:0">
+                                                <li class="cumarginbutton"><!---Time Line Element--->
+                                                  <div class="timeline-badge up"></div>
+                                                  <div class="timeline-panel">
+                                                    <div class="timeline-heading">
+                                                      <h4 class="timeline-title">{{data.name}}</h4>
+                                                    </div>
+                                                    <div class="timeline-body"><!---Time Line Body&Content--->
+                                                      <p class="pull-left">{{data.op1}}</p>
+                                                        <p class="text-right">{{data.op2}}</p>
+                                                    </div>
+                                                  </div>
+                                                </li>
+                                           
+    </ul>
+        <div class="timeline-badge up" style="width:25px;margin-left:15px" >
+           <a href="#" class="last" ng-model="button" ng-disabled="checked"> <i class="glyphicon glyphicon-option-horizontal" style="padding:2px 2px 2px 2px;" ng-click="next()"></i></a></div>
+
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="completed" ng-controller="myctrl1" >
+                                            <ul class="timeline cumarginbutton" ng-repeat="ques in question |limitTo:count+2:0">
+                                                <li class="cumarginbutton" ><!---Time Line Element--->
+                                                  <div class="timeline-badge up"></div>
+                                                  <div class="timeline-panel">
+                                                    <div class="timeline-heading" >
+                                                      <h4 class="timeline-title">{{ques.name}}</h4>
+                                                    </div>
+                                                    <div class="timeline-body"><!---Time Line Body&Content--->
+                                                      <p class="pull-left">{{ques.op1}}</p>
+                                                        <p class="text-right">{{ques.op2}}</p>
+                                                    </div>
+                                                  </div>
+                                                </li>
+                                           
+    </ul>
+        <div class="timeline-badge up" style="width:25px;margin-left:15px" >
+           <a href="#" class="last1" ng-model="button" ng-disabled="checked">
+                <i class="glyphicon glyphicon-option-horizontal" style="padding:2px 2px 2px 2px;" ng-click="next()">
+                </i></a></div>
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="inprogress" ng-controller="myctrl2">
+                                                 <ul class="timeline cumarginbutton" ng-repeat="ques in question |limitTo:count+2:0" ng-if="ques.op2==='InProgress'">
+                                                <li class="cumarginbutton" ><!---Time Line Element--->
+                                                  <div class="timeline-badge up"></div>
+                                                  <div class="timeline-panel">
+                                                    <div class="timeline-heading" >
+                                                      <h4 class="timeline-title">{{ques.name}}</h4>
+                                                    </div>
+                                                    <div class="timeline-body"><!---Time Line Body&Content--->
+                                                      <p class="pull-left">{{ques.op1}}</p>
+                                                        <p class="text-right">{{ques.op2}}</p>
+                                                    </div>
+                                                  </div>
+                                                </li>
+                                           
+    </ul>
+        <div class="timeline-badge up" style="width:25px;margin-left:15px" >
+           <a href="#" class="last2" ng-model="button" ng-disabled="checked">
+                <i class="glyphicon glyphicon-option-horizontal" style="padding:2px 2px 2px 2px;" ng-click="next()">
+                </i></a></div>
+                                            </div>
+                                        
+                                    </div>
+</div>
+                                </div>
+	</div>
+        </div>
+        <div class="col-sm-8" >
+
+            <div class="jumbotron">
+            
+  
+  </div>
+        </div> 
+        </div>
+            </div>
+        <script  type="text/javascript">
+$(document).ready(function() {
+$(".scroll").click(function(event) {
+$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
+});
+});
+</script>
+    <script type="text/javascript">
+        $(function () {
+            var notify = function () {
+                setTimeout(function () {
+                    
+                    setTimeout(function () { }, 2500);
+                }, 250);
+            };
+
+            $("a.last").click(function (e) {
+                
+                e.preventDefault();
+                //console.log("hello");
+                $('a.last').scrollintoview({ duration: 1000, complete: notify });
+            });
+
+            $("a.last1").click(function (e) {
+                e.preventDefault();
+                $("a.last1").scrollintoview({ duration: 1000, complete: notify });
+            });
+
+            $("a.last2").click(function (e) {
+                e.preventDefault();
+                $("a.last2").scrollintoview({ duration: 1000, complete: notify });
+            });
+            $("a.first").click(function (e) {
+                e.preventDefault();
+                $("p").scrollintoview({ duration: "normal", complete: notify });
+            });
+        }());
+		</script>
+</body>
+</html>
